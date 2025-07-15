@@ -1,0 +1,146 @@
+It  combines the prediction of multiple model to produce a final output
+it reduces the varience
+reduces the bias 
+import robustness
+
+1.Bagging(bootstap aggregating)
+    trains multiple models independently on diffrent subset of data created through bootstrapping
+    combines predictions by averaging(regression) or majarity voting(classification)
+    ex random forest,decision tree
+    strengh: reduces bias without increasing varience
+
+2.Boosting
+    Trains models sequentially,where each model focuses on correcting the errors made by previous ones
+    ex: adaboost,gradientboost,xgboost,lightgbm
+    OR sequentially combines the weak learners to form a strong learners
+
+
+
+3.Stacking
+    Combines predictions from multiple base models using meta model to learn how to best combine their outputs
+    strenghts:can utilize diverse model types to maximize performance
+
+
+
+Random forest
+    combine multiple decision tree using bagging
+    reduces overfitting
+
+    features:
+        bootstap sampling
+        feature randomness
+        prediction aggregation
+
+    advantages:
+        handels both regression and classification
+        works well with high dimentionality data
+        reduces overfitting compared to single decisin tree
+
+    parameters:
+        1.numbers of trees(n_estimators)
+            the no of desition tree in the forest
+            larger value reduce varience but increses computational task
+        2.Maximum Depth(max_depth)
+            limits depth of each tree to prevent overfitting
+            shallower trees generalize better but may underfit
+        3.Feature Selection
+            number of feature to consider when looking for the best split
+            options
+                sqrt|log2|None
+        4.Minimum Samples for leaf(min_samples_leaf)  
+            Minimums number of samples required in a leaf node
+            prevents overly complex trees by ensuring each leaf contains enough samples           
+
+Gradientboosting 
+    sequentially builds models that minimize errors in previos ones
+    suitable for both reggresion and classification
+
+    boosting algorithm builds models sequentially by minimizing loss function using gradient Decent 
+
+    working:
+    initialize model:      start with a simple model often predicting the mean of the target variable
+    compute the residuals: calculate the diffrence btween the acual and predictet values
+    fit weak learner:      train weak learner to predict the residuals
+    update prediction:     add the prediction of the weak learner to the overall model
+    repeat:                continue adding weak learners unil the desired number of iterations or a stopping criation is reached
+
+    key parameters:
+
+        Learning_Rate
+            determine the contibution of each weak learner
+            smaller values reduce overfitting but require more iterations
+            range:0.01 to 0.3
+
+        Number of n_estimators
+            the number of weak learner or tree added sequentially
+            large values improve learning but increase computation Time 
+
+        tree depth(max_depth) 
+            limits the complexity of individual trees
+
+        Regularizatin
+            techniques like liniting tree depth or adding penalties to prevent overfitting
+
+
+
+Adaboost 
+    adjust model weights based on the performance
+    focuses on misclassified instances
+
+XG boost 
+    it is the optimized version of gradientboost known for speed and accuracy
+    it introduced varies enhancement that make it faster more efficient and capable of handling complex datasets
+    improvements over traditional gradientboost:
+        speed
+        handling missing data
+        regularization
+        custom loss function
+        tree feature
+
+    key features:
+        handlingmissing data:
+            automatically assigns missing value to the branch that minimizes the loss function
+
+            reduces preprocessing steps for datasets with missing values    
+
+        Regularizatin:
+            include penalties for overly complex models,reducing overfitting
+            hyperparameters
+                lambda:L2 regularization
+                alpha:L1 regularization
+
+        Parellel preprocessing
+            splits calculations for tree construction across multiple cores sgnificantly improving traing time          
+
+    key parameters:
+        learning rate(eta)
+            contriles the contribution of each tree to the model
+            typical range 0.01-0.3
+
+        number of trees(n_estimators)
+            determines the number of boosting rounds
+            larger values may improve performance but inrese computation time    
+
+        tree depth(max_depth)
+            limits the depth of tree balancing bias and varience
+            shallower trees generalize better,while deeper trees may overfit 
+
+        subsample:
+            Fraction of data used to train each tree
+            helps reduce overfitting :range 0.5-1.0
+
+        subsample:
+            fraction of data used to train each tree
+            helps reduce overfitting
+            range:0.5-1.0
+
+        colsample_bytree
+            fraction of features used for each split
+
+        regularizatin parameter:lambda and alpha control l1 and l2 regularization    
+
+        
+
+
+Voting classifier
+    uses majarityvoting and averaging
