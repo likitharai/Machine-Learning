@@ -144,3 +144,44 @@ XG boost
 
 Voting classifier
     uses majarityvoting and averaging
+
+
+
+handling Imbalence data:
+    challenges:
+        biase towards the negative class 
+        misleading evaluation matrix
+        limited information about minarity classes
+
+    application:
+        fraud detection,medical diagnosis,and anamaly detection        
+
+
+    Techniques :
+        Resamping:
+            oversampling:
+                increase the number of minarity class by DUPLICATING OR SYNTHESIZING NEW Samples
+                EX: SMOTE(synthetic minarity over sampling)which generates synthetic examples
+
+            Unersampling:
+                Reduce the number of majarity class samples to balence the datasets
+                risk:loss of valuatble information from majarity class
+
+            Algorithmic solution:
+                class weights
+                    assign higher weights to the minarity class during model training
+
+                    many algorith have built in support class weights
+
+            Anamaly Detection models
+                Treat the minarity class as anamalies focusing the model on detecting items
+
+            Evaluation Metrics for Imbalence data
+                F1 score:
+                    harmonic mean of precision and recall,focusing on both fp&fn 
+
+                ROC-AUC:
+                    measures the ability to distiguish btween classes across varios threshold value
+
+                Precision-Recall Curve:
+                    focuses on performance on the positive class                       
