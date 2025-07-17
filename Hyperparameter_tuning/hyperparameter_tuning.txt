@@ -1,0 +1,54 @@
+What are Parameter
+    adjusted to minimize the loss function and optimize predictions
+    example:
+        Coefficients in Linear Regression
+        weights and biases in neural networks
+
+What are Hyperparameters:
+    setting defined before training that influence how the model learns from data
+    not learned from the data but insteed control the training process
+
+    example:
+        tree depth
+        learing rate 
+        number of estimators
+
+importance:
+    why tune Hyperparameters
+        impove model performance
+        enhance efficiency
+        adapt to problem specific needs
+
+commen hyperparameters:
+    Desition tree and random forest
+        Max depth:Limits the depth of trees to avoid overfitiing
+        Min sample split:
+        no of estimators
+    Gradient Boosting models
+        learning rate(contibution of tree)
+        subsample(fraction of training data)
+        max depth(limits complexity of individual trees)
+
+    Neural networks
+        learning rate(step size for weight updates)
+        no of layers:determine the depth of networks
+        batch size:no of samples per gradient update     
+
+GRID SEARCH 
+    Method of hyperparameters tuning that systematically evaluates all possible combinations of hyperparameters value within specified grid   
+
+    Working:
+        define a range of values for each hyperparameter and evaluate the model on each combination of hyperparameter values
+        train and evaluate the model on each combination of hyperparameter values
+        select the combination that yields best performance
+
+    what is Random Search :
+        alternative method where hyperparameter combinations are sampled randomly from the specified ranges  
+
+        working:
+            define ranges or distributions for each hyperparameter
+            randomly sample a specified number of combinations
+            train and evaluate the model for each sampled combination 
+
+
+
