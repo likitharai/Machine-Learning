@@ -52,3 +52,38 @@ GRID SEARCH
 
 
 
+BAYESIAN OPTIMIZATION:
+    Advanced method for hyperparameter tuning that balances exploration and exploitation(refining promising region)
+    uses a probablistic model to guide the Search for optimal hyperparameter
+
+    working:
+        surrogate model
+            builds probablistic model of the objective function based on prior evaluations
+        Acquisition Function  
+            balances exploration & exploitation by choosing the next hyperparameter to evaluate based on predicted performanceand uncertainity  
+
+        iterative Refinement
+            updates the surrogate model after each evaluation,refining the Search
+
+    it is efficent for high dimentional and expensive to evaluate function
+    reduces the no of evaluations
+
+    POPULAR LIBRARIES:
+        Hyperopt
+            simplifies basyesian optimization for hyperparameter tuning
+            works with fmin to minimize objective functions over Parameterspace   
+
+        Optuna   
+            flexible and user-friendly library for hyperparameteroptimization
+            supports dynamic Searchspaces and pruning of unpromising trials
+
+        Exploration:
+            Focuses on sampling hyperparameter from unexplores region
+            useful for indentifying new areas of high potential
+        Exploitation:
+            focuses on refining the search around regionwith known high performance
+            useful for fine-tuning near optimal hyperparameter
+
+         Bayesian optimization Advantage:
+            balances these approches using the acuisition function to minimizeunnecessary evaluations while improving results
+
