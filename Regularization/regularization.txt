@@ -1,0 +1,53 @@
+Overfitting:
+    occurs when a model learns the noise in traing data along which the patterns leading to poor generalization on unseen data
+
+    symptoms:
+        high training accuracy but low test accuracy
+
+        large diffrences between traing and validation losses
+
+Underfitting:
+    Occurs when a model is too simple to capture the undarlaying pattens in the data
+
+    symptoms:
+        low accuracy on both traing and test sets
+        High bias in predictions
+
+Regularization Techniques:
+    l1 Regularization(lasso-absolute values of Coefficients)
+    l2 Regularization(ridge-squared values of Coefficients)
+    Elastic net (COMBINES L1 & L2)
+
+Apllication:
+    prevent overfitiing
+    handle  multicollinearity(ridge)
+    feature selection(lasso)
+
+CROSS-VALIDATION 
+    Statistical method used to evaluate the performance of a model by partitioning the data into training and validation subset multiple times
+
+    it prevents Overfitting
+    reliabel performance estimate
+    optimize model selection
+
+    types:
+        K-Fold Cross validation:
+            best for genaral purpose dataset
+        Satified K-Fold Cross validation:
+            ensures that each fold maintaines the same class distributionsas the original datasets
+            best for classification with inbalance data
+        Leave-one-out cross -validation(LOOCV)
+            single data as validation set rest as the training set
+            pros:maximize training data for each folf
+            cons:computaionally super expensive for large dataset    
+
+
+choose k based on dataset size
+    k=5 or k=10 are commonly usedfor lage datasets
+    use LOOCV small datasets
+stratification for imbalence data
+    kfold for imbalence classification     
+combine with hyperparameters               
+
+
+

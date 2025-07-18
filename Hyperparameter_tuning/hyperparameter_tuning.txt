@@ -50,6 +50,12 @@ GRID SEARCH
             randomly sample a specified number of combinations
             train and evaluate the model for each sampled combination 
 
+    Grid Search CV:
+        Exhaustive search over a specified Parametergrid
+        trains and evaluate a model for every combination in the grid using cross validation
+    RandamizedSearchCV:
+        Select a fixed no of random combinations from a parameter distributions            
+
 
 
 BAYESIAN OPTIMIZATION:
